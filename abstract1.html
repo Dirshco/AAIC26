@@ -1,1 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AAIC 2026 – Bridging The Gap – Dementia Care AI Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2545; --teal:#0E7C7B; --teal2:#12A89E;
+  --gold:#C97D0A; --gold2:#F2A830; --slate:#3D5A80;
+  --sky:#E8F4F8; --cream:#F8F7F3; --white:#FFFFFF;
+  --border:#D4DDE8; --muted:#5E6E82; --body:#1E2D3D;
+  --PW:3648px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8A9BAD;display:flex;justify-content:center;
+  align-items:flex-start;padding:24px;font-family:'DM Sans',sans-serif;color:var(--body)}
+
+.wrap{transform-origin:top center;width:var(--PW)}
+.poster{width:var(--PW);background:var(--cream);display:flex;flex-direction:column}
+
+/* ── HEADER ── */
+.hdr{background:var(--navy);padding:54px 96px 46px;
+  display:grid;grid-template-columns:1fr 248px;gap:40px;align-items:start}
+.tags{display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap;align-items:center}
+.tag{font-size:28px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 20px;border-radius:6px}
+.tc{background:var(--gold2);color:var(--navy)}
+.tt{background:transparent;color:#8AAFC8;border:2px solid #8AAFC8}
+h1{font-family:'Source Serif 4',serif;font-weight:700;font-size:80px;
+  line-height:1.14;color:#fff;margin-bottom:26px}
+.sub{background:rgba(14,124,123,.2);border-left:7px solid var(--teal2);
+  padding:18px 26px;font-size:34px;font-style:italic;color:#fff;
+  line-height:1.5;margin-bottom:22px}
+.authors{font-size:34px;color:#fff;line-height:1.65}
+.authors strong{color:#fff;font-weight:600}
+.badge{background:var(--gold2);color:var(--navy);border-radius:14px;
+  width:248px;height:448px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;flex-shrink:0;text-align:center;gap:6px}
+.badge .ring{width:140px;height:140px;border-radius:50%;background:var(--navy);
+  color:var(--gold2);display:flex;align-items:center;justify-content:center;
+  font-family:'Source Serif 4',serif;font-weight:700;font-size:40px;margin-bottom:14px;border:6px solid var(--cream)}
+.badge .n{font-size:34px;font-weight:700;line-height:1.15;padding:0 18px}
+.badge .l{font-size:20px;font-weight:700;letter-spacing:.06em;margin-top:6px;padding:0 14px}
+.stripe{height:9px;background:linear-gradient(90deg,var(--teal),var(--gold2) 55%,var(--teal2))}
+
+/* ── BODY 4-COL ── */
+.body{display:grid;grid-template-columns:repeat(4,1fr)}
+.col{padding:60px 44px;display:flex;flex-direction:column;gap:42px}
+.cL{background:var(--cream);border-right:2px solid var(--border)}
+.cM{background:var(--white);border-right:2px solid var(--border)}
+.cR{background:var(--cream);border-right:2px solid var(--border)}
+.cD{background:var(--white)}
+
+/* ── section head ── */
+.sh{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.bar{width:7px;border-radius:4px;flex-shrink:0}
+.bt{background:var(--teal);height:46px}
+.bg{background:var(--gold);height:46px}
+.bn{background:var(--navy);height:46px}
+.bs{background:var(--slate);height:46px}
+h2{font-size:36px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+
+/* ── text ── */
+p,li{font-size:31px;line-height:1.65;color:var(--body)}
+ul{padding-left:34px}
+li{margin-bottom:9px}
+li::marker{color:var(--teal)}
+
+/* ── pills ── */
+.pills{display:flex;flex-direction:column;gap:12px}
+.pill{background:var(--sky);border-left:6px solid var(--teal);
+  padding:14px 20px;border-radius:0 8px 8px 0;font-size:34px;color:var(--navy);line-height:1.4}
+
+/* ── feature 2x2 ── */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fc{background:var(--sky);border-left:5px solid var(--teal);
+  border-radius:0 10px 10px 0;padding:16px;font-size:26px;color:var(--navy);line-height:1.45}
+.fc strong{display:block;font-size:25px;font-weight:700;color:var(--teal);margin-bottom:2px}
+
+/* ── ethics / criteria list ── */
+.el{display:flex;flex-direction:column;gap:10px}
+.ei{font-size:34px;color:var(--navy);line-height:1.5;
+  padding-left:16px;border-left:4px solid var(--border)}
+
+/* ── figure box ── */
+.fb{background:var(--white);border:2px solid var(--border);border-radius:14px;overflow:hidden}
+.fh{background:var(--navy);color:#fff;font-size:34px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:14px 22px}
+.fd{padding:30px 30px 24px}
+
+/* ── bar chart ── */
+.bch{display:flex;flex-direction:column;gap:26px;margin-bottom:10px}
+.bcrow{display:grid;grid-template-columns:260px 1fr;align-items:center;gap:18px}
+.bclabel{font-size:24px;font-weight:600;color:var(--navy);line-height:1.3}
+.bctrack{position:relative;background:#EEF2F6;border-radius:8px;height:56px;display:flex;align-items:center}
+.bcfill{height:100%;border-radius:8px 0 0 8px;display:flex;align-items:center;justify-content:flex-end;padding-right:16px}
+.bcfill-ai{background:linear-gradient(90deg,var(--teal2),var(--teal))}
+.bcfill-orig{background:linear-gradient(90deg,var(--gold),var(--slate))}
+.bcval{font-size:28px;font-weight:700;color:#fff}
+.bcaxis{display:grid;grid-template-columns:260px 1fr;gap:18px;margin-top:4px}
+.bcaxis .ax{display:flex;justify-content:space-between;font-size:20px;color:var(--muted);padding:0 2px;border-top:2px dashed var(--border);padding-top:8px}
+
+/* ── safety callout ── */
+.sb{background:#F5EEF8;border:2px solid #C39BD3;border-radius:10px;
+  padding:18px 22px;display:flex;gap:16px;align-items:flex-start}
+.sb-ic{font-size:34px;flex-shrink:0;line-height:1.2}
+.sb-txt{font-size:27px;color:#6C3483;line-height:1.55}
+.sb-txt strong{color:#7D3C98;display:block;font-size:22px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+
+/* ── stats ── */
+.stats{display:flex;flex-direction:column;gap:14px}
+.sc{background:var(--navy);border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:22px}
+.sn{font-family:'Source Serif 4',serif;font-size:50px;font-weight:700;
+  color:var(--gold2);line-height:1;flex-shrink:0;min-width:160px}
+.sct{display:flex;flex-direction:column;gap:2px}
+.sd{font-size:24px;color:#fff;line-height:1.3}
+.sd2{font-size:24px;color:#fff;margin-top:2px}
+
+/* ── models 2x2 ── */
+.cms{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cm2{border-radius:12px;padding:18px 16px;display:flex;flex-direction:column;gap:6px}
+.ci{font-size:38px}
+.ct2{font-size:26px;font-weight:700;line-height:1.2}
+.cd{font-size:24px;line-height:1.45}
+.ca{background:#D6EAF8;color:#1A5276}
+.cb{background:#D5F5E3;color:#1E8449}
+.cc2{background:#FEF9E7;color:#7D6608}
+.cd2{background:#FDEDEC;color:#922B21}
+
+/* ── table ── */
+.btbl{width:100%;border-collapse:collapse}
+.btbl th{background:var(--navy);color:#fff;font-size:24px;
+  padding:12px 14px;text-align:left;font-weight:700}
+.btbl td{font-size:34px;padding:14px 14px;
+  border-bottom:1px solid var(--border);color:var(--body);line-height:1.4}
+.btbl tr:nth-child(even) td{background:#F0F4F8}
+.btbl tr:last-child td{border-bottom:none}
+
+/* ── conclusions ── */
+.concl{display:flex;flex-direction:column;gap:14px}
+.ci2{display:flex;gap:14px;align-items:flex-start}
+.dot{width:13px;height:13px;border-radius:50%;background:var(--teal);
+  flex-shrink:0;margin-top:10px}
+.ct3{font-size:29px;line-height:1.6;color:var(--body)}
+
+/* ── future ── */
+.fut{display:flex;flex-direction:column;gap:14px}
+.fi{border-radius:10px;padding:16px 18px;font-size:28px;line-height:1.48}
+.fi strong{display:block;font-size:25px;font-weight:700;margin-bottom:3px}
+.fn{background:#EBF5FB;color:#1A5276;border-left:6px solid #2E86C1}
+.fm{background:#D5F5E3;color:#1E8449;border-left:6px solid #27AE60}
+.fs{background:#FEF9E7;color:#7D6608;border-left:6px solid #D4AC0D}
+
+/* ── KT ribbon ── */
+.kt{background:linear-gradient(135deg,var(--teal),var(--navy));
+  padding:44px 96px;display:flex;align-items:center;gap:0}
+.ktlb{display:flex;align-items:center;padding-right:52px;
+  border-right:2px solid rgba(255,255,255,.2);margin-right:52px;flex-shrink:0}
+.ktl{font-size:34px;font-weight:700;letter-spacing:.10em;
+  text-transform:uppercase;color:var(--gold2);white-space:nowrap}
+.ktg{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;flex:1}
+.kti{display:flex;gap:14px;align-items:flex-start}
+.ktic{font-size:40px;flex-shrink:0;line-height:1}
+.ktt{font-size:36px;color:rgba(255,255,255,.92);line-height:1.52}
+.ktt strong{color:var(--gold2);display:block;font-size:30px;margin-bottom:3px}
+
+/* ── footer ── */
+.footer{background:var(--navy);padding:34px 96px 24px;
+  display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:52px;align-items:start}
+.ftl{font-size:22px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold2);margin-bottom:12px}
+.footer ul{padding-left:22px}
+.footer li{font-size:22px;color:#7AAAC2;line-height:1.6;margin-bottom:4px}
+.footer li::marker{color:var(--teal2)}
+.qrb{background:#fff;border-radius:12px;padding:18px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0}
+.qrp{width:120px;height:120px;background:#eee;border:2px dashed #aaa;
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:#999;text-align:center;padding:8px}
+.qrl{font-size:18px;color:var(--navy);font-weight:700;text-align:center}
+
+@media print{
+  @page{size:38in 33in;margin:0}
+  body{background:none;padding:0;display:block}
+  .wrap{transform:none !important;margin-bottom:0 !important}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+<div class="poster" id="poster">
+
+<!-- HEADER -->
+<header class="hdr">
+  <div>
+    <div class="tags">
+      <span class="tag tc">AAIC 2026</span>
+      <span class="tag tt">Health Literacy / Digital Health</span>
+      <span class="tag tt">Poster Session</span>
+    </div>
+    <h1>Bridging The Gap: An Audit Of AI-Simplified Dementia Care Resources</h1>
+    <div class="authors">
+      <strong>Alaa Mohamed¹ · Asmaa Mohamed¹ · Areej Emam¹ · Ayah Gharaibeh¹ · Azza Elkamali¹ · Hadeel Ali, M.B.B.S² · Lujane Sobair¹ · Marwa Mohamed¹ · Marwa Mohamed¹ · Raghad Ghazafi Mohamed¹ · Rim ben Khaled Bessassi¹ · Youmna Ismail¹ · Razan Abdelrahman³ · Nadir Abdelrahman, MD¹<br><br>
+      1. Tele-Geriatric Research Fellowship, Okemos, MI, USA &nbsp;·&nbsp; 2. Thumbay University Hospital, Ajman, United Arab Emirates &nbsp;·&nbsp; 3. Michigan State University, East Lansing, MI, USA</strong>
+    </div>
+  </div>
+  <div class="badge">
+<!--    <div class="ring">TGRF</div> -->
+<span class="n">54</span><span class="l">POSTER</span>
+<p><br>
+  <img src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/K3BIGT4oJzF4B5AsuYIU.jpg" width="160" height="160">
+  </p>
+  </div>
+</header>
+<div class="stripe"></div>
+
+<!-- KEY TAKEAWAYS -->
+<div class="kt">
+  <div class="ktlb"><div class="ktl">Key Takeaways</div></div>
+  <div class="ktg">
+    <div class="kti">
+      <div class="ktt"><strong>74% Readability Gain</strong>Mean reading grade level fell from 15.9 to 4.2 after AI simplification of post-diagnostic dementia materials</div>
+    </div>
+    <div class="kti">
+      <div class="ktt"><strong>High Clinician-Rated Fidelity</strong>Simplified outputs scored a mean of 4.5/5.0 for clinical utility and accuracy across three independent reviewers</div>
+    </div>
+    <div class="kti">
+      <div class="ktt"><strong>A Compassion Gap Remains</strong>Tone was occasionally rated as overly clinical or detached — reinforcing the need for Human-in-the-Loop oversight</div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- COLUMN 1 -->
+  <div class="col cL">
+
+    <section>
+      <div class="sh"><div class="bar bt"></div><h2>Background</h2></div>
+      <p style="margin-bottom:14px">Alzheimer's disease or related dementia (ADRD) diagnoses often involve complex clinical documentation that can overwhelm families.</p>
+      <p>Large Language Models (LLMs) offer a way to simplify medical jargon; however, their accuracy and empathy in a clinical context remain under-evaluated.</p>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bg"></div><h2 style="color:var(--gold)">Why It Matters</h2></div>
+      <div class="pills">
+        <div class="pill">Post-diagnostic materials overwhelm patients and caregivers</div>
+        <div class="pill">Professional clinical text averages a 15.9 grade reading level</div>
+        <div class="pill">AI accuracy and empathy in clinical contexts remain under-evaluated</div>
+        <div class="pill">Risk of "hallucination" in high-stakes health information</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bt"></div><h2>Methods</h2></div>
+      <p style="margin-bottom:16px">An audit study evaluating <strong>Gemini 1.5, GPT-4o, and DeepSeek V3.2</strong> in translating professional post-diagnostic advice into patient-friendly language.</p>
+    </section>
+
+  </div><!-- /cL -->
+
+  <!-- COLUMN 2 -->
+  <div class="col cM">
+
+    <section>
+      <div class="sh"><div class="bar bs"></div><h2>Evaluation Criteria</h2></div>
+      <div class="el">
+        <div class="ei"><strong style="color:var(--navy)">Clinical Accuracy</strong> — fidelity to the original clinical meaning</div>
+        <div class="ei"><strong style="color:var(--navy)">Readability</strong> — Flesch-Kincaid Grade Level formula</div>
+        <div class="ei"><strong style="color:var(--navy)">Compassion</strong> — empathetic, supportive tone of simplified text</div>
+        <div class="ei">All outputs independently rated by three clinicians on a 5-point Likert scale</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bn"></div><h2>Models Evaluated</h2></div>
+      <div class="cms">
+        <div class="cm2 ca"><div class="ct2">Gemini 1.5</div><div class="cd">Google multimodal LLM</div></div>
+        <div class="cm2 cb"><div class="ct2">GPT-4o</div><div class="cd">OpenAI multimodal LLM</div></div>
+        <div class="cm2 cc2"><div class="ct2">DeepSeek V3.2</div><div class="cd">Open-weight LLM</div></div>
+        <div class="cm2 cd2"><div class="ct2">Fixed Prompt</div><div class="cd">6th-grade level, accuracy &amp; empathy preserved</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bn"></div><h2>Table 1 · Evaluation Domains</h2></div>
+      <div class="fb">
+        <table class="btbl">
+          <thead><tr><th>Domain</th><th>What Was Assessed</th></tr></thead>
+          <tbody>
+            <tr><td>Clinical Accuracy</td><td>Fidelity to original clinical meaning</td></tr>
+            <tr><td>Readability</td><td>Flesch-Kincaid Grade Level formula</td></tr>
+            <tr><td>Compassion</td><td>Empathetic, supportive tone</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:31px;color:var(--navy);padding:10px 14px;font-style:italic">Rated by 3 independent clinicians on a 5-point Likert scale</p>
+      </div>
+    </section>
+
+  </div><!-- /cM -->
+
+  <!-- COLUMN 3 -->
+  <div class="col cR">
+
+    <section>
+      <div class="sh"><div class="bar bn"></div><h2>Figure 1 · Mean Reading Grade Level</h2></div>
+      <div class="fb">
+        <div class="fh">PROFESSIONAL TEXT VS. AI-SIMPLIFIED TEXT</div>
+        <div class="fd">
+          <div class="bch">
+            <div class="bcrow">
+              <div class="bclabel">AI-Simplified<br>(Patient-Friendly)</div>
+              <div class="bctrack"><div class="bcfill bcfill-ai" style="width:21%"><span class="bcval">4.2</span></div></div>
+            </div>
+            <div class="bcrow">
+              <div class="bclabel">Original<br>(Professional Text)</div>
+              <div class="bctrack"><div class="bcfill bcfill-orig" style="width:79.5%"><span class="bcval">15.9</span></div></div>
+            </div>
+          </div>
+          <div class="bcaxis"><div></div><div class="ax"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bg"></div><h2>Results</h2></div>
+      <div class="stats">
+        <div class="sc"><div class="sn">15.9→4.2</div><div class="sct"><div class="sd">Mean Reading Grade</div><div class="sd">Before → after simplification</div></div></div>
+        <div class="sc"><div class="sn">74%</div><div class="sct"><div class="sd">Readability Improvement</div><div class="sd2">Across 10 information sheets</div></div></div>
+        <div class="sc"><div class="sn">4.5/5.0</div><div class="sct"><div class="sd">Mean Clinician Score</div><div class="sd2">Utility &amp; fidelity rating</div></div></div>
+        <div class="sc"><div class="sn">3</div><div class="sct"><div class="sd">LLMs Compared</div><div class="sd2">Gemini 1.5 · GPT-4o · DeepSeek V3.2</div></div></div>
+      </div>
+      <ul style="margin-top:20px">
+        <li>Mean reading grade level decreased from 15.9 to 4.2, a 74% improvement in readability</li>
+        <li>Clinician review demonstrated high utility and fidelity scores (mean 4.5/5.0)</li>
+        <li>Qualitative error analysis: infrequent deficits, primarily within the "Compassion" domain</li>
+        <li>Tone was occasionally perceived as overly clinical or detached</li>
+      </ul>
+    </section>
+
+  </div><!-- /cR -->
+
+  <!-- COLUMN 4 -->
+  <div class="col cD">
+
+    <section>
+      <div class="sh"><div class="bar bg"></div><h2>Future Directions</h2></div>
+      <div class="fut">
+        <div class="fi fn"><strong>NEAR-TERM</strong>Evaluate AI-generated materials directly with patients and caregivers in real-world settings</div>
+        <div class="fi fm"><strong>MID-TERM</strong>Develop strategies to improve empathy and compassionate communication in AI outputs; enhance safeguards to reduce hallucinations and improve reliability</div>
+        <div class="fi fs"><strong>STRATEGIC</strong>Explore multilingual adaptation and integration of AI tools within Human-in-the-Loop (HITL) clinical workflows</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bt"></div><h2>Conclusions</h2></div>
+      <div class="concl">
+        <div class="ci2"><div class="dot"></div><div class="ct3">LLMs are great tools that can bridge the health literacy gap by transforming complex clinical data into patient-centered materials.</div></div>
+        <div class="ci2"><div class="dot"></div><div class="ct3">Integrating AI into post-diagnostic workflows can enhance caregiver support and healthcare equity.</div></div>
+        <div class="ci2"><div class="dot"></div><div class="ct3">The potential for hallucinations in high-stakes scenarios supports the use of AI as a clinical "co-pilot" within a Human-in-the-Loop (HITL) framework.</div></div>
+      </div>
+    </section>
+
+<section>
+<div class="cms">
+        <div class="cm2 ca"><div class="ct2">Contact Information</div><div class="cd">
+         <p align="center">   <img src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/78Liye0DCg7YtW0EPUHj.png" width="160" height="160"></p>
+         </div></div>
+        <div class="cm2 cb"><div class="ct2">Interactive Prototype</div><div class="cd">
+         <p align="center">   <img src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/fpFgRiFaGxehKtbWv5Rj.jpg" width="160" height="160"></p>
+         </div></div>
+</div>
+</section>
+
+  </div><!-- /cD -->
+
+</div><!-- /body -->
+
+</div></div>
+<script>
+(function(){
+  var wrap=document.getElementById('wrap');
+  var poster=document.getElementById('poster');
+  function sc(){
+    var vw=window.innerWidth-48;
+    var s=Math.min(vw/3648,1);
+    wrap.style.transform='scale('+s+')';
+    wrap.style.transformOrigin='top center';
+    var h=poster.offsetHeight;
+    wrap.style.marginBottom=(h*s-h)+'px';
+  }
+  window.addEventListener('load',sc);
+  window.addEventListener('resize',sc);
+})();
+</script>
+</body>
+</html>
 
