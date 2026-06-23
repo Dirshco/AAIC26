@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AAIC 2026 – Crisis Card AI – FINAL v3</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2545; --teal:#0E7C7B; --teal2:#12A89E;
+  --gold:#C97D0A; --gold2:#F2A830; --slate:#3D5A80;
+  --sky:#E8F4F8; --cream:#F8F7F3; --white:#FFFFFF;
+  --border:#D4DDE8; --muted:#5E6E82; --body:#1E2D3D;
+  --PW:3648px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8A9BAD;display:flex;justify-content:center;
+  align-items:flex-start;padding:24px;font-family:'DM Sans',sans-serif;color:var(--body)}
+
+.wrap{transform-origin:top center;width:var(--PW)}
+.poster{width:var(--PW);background:var(--cream);display:flex;flex-direction:column}
+
+/* ── HEADER ── */
+.hdr{background:var(--navy);padding:54px 96px 46px;
+  display:grid;grid-template-columns:1fr 168px;gap:40px;align-items:start}
+.tags{display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap;align-items:center}
+.tag{font-size:28px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 20px;border-radius:6px}
+.tc{background:var(--gold2);color:var(--navy)}
+.tt{background:transparent;color:#8AAFC8;border:2px solid #8AAFC8}
+h1{font-family:'Source Serif 4',serif;font-weight:700;font-size:86px;
+  line-height:1.12;color:#fff;margin-bottom:26px}
+.sub{background:rgba(14,124,123,.2);border-left:7px solid var(--teal2);
+  padding:18px 26px;font-size:34px;font-style:italic;color:#B5D5E5;
+  line-height:1.5;margin-bottom:22px}
+.authors{font-size:30px;color:#ffffff;line-height:1.65}
+.authors strong{color:#C0D8E8;font-weight:600}
+.badge{background:var(--gold2);color:var(--navy);border-radius:14px;
+  width:248px;height:360px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;flex-shrink:0}
+.badge .n{font-size:70px;font-weight:700;line-height:1}
+.badge .l{font-size:22px;font-weight:700;letter-spacing:.07em}
+.stripe{height:9px;background:linear-gradient(90deg,var(--teal),var(--gold2) 55%,var(--teal2))}
+
+/* ── BODY 3-COL ── */
+.body{display:grid;grid-template-columns:780px 1fr 780px}
+.col{padding:60px 56px;display:flex;flex-direction:column;gap:42px}
+.cL{background:var(--cream);border-right:2px solid var(--border)}
+.cM{background:var(--white);border-right:2px solid var(--border)}
+.cR{background:var(--cream)}
+
+/* ── section head ── */
+.sh{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.bar{width:7px;border-radius:4px;flex-shrink:0}
+.bt{background:var(--teal);height:46px}
+.bg{background:var(--gold);height:46px}
+.bn{background:var(--navy);height:46px}
+.bs{background:var(--slate);height:46px}
+h2{font-size:36px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+
+/* ── text ── */
+p,li{font-size:31px;line-height:1.65;color:var(--body)}
+ul{padding-left:34px}
+li{margin-bottom:9px}
+li::marker{color:var(--teal)}
+
+/* ── pills ── */
+.pills{display:flex;flex-direction:column;gap:12px}
+.pill{background:var(--sky);border-left:6px solid var(--teal);
+  padding:14px 20px;border-radius:0 8px 8px 0;font-size:29px;color:var(--navy);line-height:1.4}
+
+/* ── feature 2x2 ── */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fc{background:var(--sky);border-left:5px solid var(--teal);
+  border-radius:0 10px 10px 0;padding:16px;font-size:26px;color:var(--navy);line-height:1.45}
+.fc strong{display:block;font-size:25px;font-weight:700;color:var(--teal);margin-bottom:2px}
+
+/* ── ethics ── */
+.el{display:flex;flex-direction:column;gap:10px}
+.ei{font-size:27px;color:var(--muted);line-height:1.5;
+  padding-left:16px;border-left:4px solid var(--border)}
+
+
+
+/* ── figure box ── */
+.fb{background:var(--white);border:2px solid var(--border);border-radius:14px;overflow:hidden}
+.fh{background:var(--navy);color:#fff;font-size:28px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:14px 22px}
+.fd{padding:22px}
+
+/* ── arch ── */
+.arch{display:flex;flex-direction:column;gap:12px}
+.arow{display:flex;align-items:center}
+.an{border-radius:10px;padding:16px 14px;font-size:25px;font-weight:600;
+  line-height:1.35;text-align:center;flex:1}
+.sm{font-size:21px;color:inherit;opacity:.7;display:block;margin-bottom:2px}
+.ni{background:#D6EAF8;color:#1A5276;border:2px solid #5DADE2}
+.nr{background:#D5F5E3;color:#1E8449;border:2px solid #52BE80}
+.nl{background:#FEF9E7;color:#7D6608;border:2px solid #F4D03F}
+.no{background:#FDEDEC;color:#922B21;border:2px solid #E74C3C}
+.ar{font-size:30px;color:var(--muted);padding:0 8px;flex-shrink:0}
+.adv{text-align:center;font-size:22px;color:var(--muted);font-weight:600;
+  padding:5px 0;border-top:2px dashed var(--border);border-bottom:2px dashed var(--border);margin:2px 0}
+
+.sb{background:#F5EEF8;border:2px solid #C39BD3;border-radius:10px;
+  padding:14px 18px;margin-top:12px}
+.sb-l{font-size:22px;font-weight:700;color:#7D3C98;text-transform:uppercase;
+  letter-spacing:.05em;margin-bottom:8px}
+.sps{display:flex;flex-wrap:wrap;gap:8px}
+.sp{background:#E8DAEF;color:#6C3483;font-size:22px;font-weight:600;
+  padding:6px 14px;border-radius:40px}
+
+/* ── crisis card ── */
+.cc{background:linear-gradient(135deg,#EBF5FB,#E8F8F5);
+  border:2px solid var(--teal);border-radius:14px;overflow:hidden}
+.cch{background:var(--teal);color:#fff;padding:14px 24px;
+  font-size:28px;font-weight:700;letter-spacing:.03em}
+.ccb{padding:20px 24px;display:flex;flex-direction:column;gap:14px}
+.cs{display:flex;gap:14px;align-items:flex-start}
+.cbg{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:22px;font-weight:700;flex-shrink:0;margin-top:2px}
+.cr{background:#D6EAF8;color:#1A5276}
+.ce{background:#D5F5E3;color:#1E8449}
+.cv{background:#FEF9E7;color:#7D6608}
+.ct{font-size:28px;line-height:1.48;color:var(--body)}
+.ctl{font-weight:700;color:var(--navy);font-size:26px;margin-bottom:1px}
+.cm{display:flex;gap:12px;flex-wrap:wrap;
+  border-top:1px solid var(--border);padding-top:12px}
+.chip{font-size:21px;background:#fff;border:1.5px solid var(--teal);
+  color:var(--teal);padding:4px 12px;border-radius:40px;font-weight:600}
+
+/* ── stats ── */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sc{background:var(--navy);border-radius:12px;padding:26px 18px;text-align:center}
+.sn{font-family:'Source Serif 4',serif;font-size:76px;font-weight:700;
+  color:var(--gold2);line-height:1;margin-bottom:6px}
+.sd{font-size:24px;color:#8AAFC8;line-height:1.3}
+.sd2{font-size:21px;color:#5A7A96;margin-top:3px}
+
+/* ── CMS 2x2 ── */
+.cms{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cm2{border-radius:12px;padding:18px 16px;display:flex;flex-direction:column;gap:6px}
+.ci{font-size:38px}
+.ct2{font-size:26px;font-weight:700;line-height:1.2}
+.cd{font-size:24px;line-height:1.45}
+.ca{background:#D6EAF8;color:#1A5276}
+.cb{background:#D5F5E3;color:#1E8449}
+.cc2{background:#FEF9E7;color:#7D6608}
+.cd2{background:#FDEDEC;color:#922B21}
+
+/* ── bpsd table ── */
+.btbl{width:100%;border-collapse:collapse}
+.btbl th{background:var(--navy);color:#fff;font-size:24px;
+  padding:12px 14px;text-align:left;font-weight:700}
+.btbl td{font-size:24px;padding:10px 14px;
+  border-bottom:1px solid var(--border);color:var(--body);line-height:1.4}
+.btbl tr:nth-child(even) td{background:#F0F4F8}
+.btbl tr:last-child td{border-bottom:none}
+
+/* ── conclusions ── */
+.concl{display:flex;flex-direction:column;gap:14px}
+.ci2{display:flex;gap:14px;align-items:flex-start}
+.dot{width:13px;height:13px;border-radius:50%;background:var(--teal);
+  flex-shrink:0;margin-top:10px}
+.ct3{font-size:29px;line-height:1.6;color:var(--body)}
+
+/* ── future ── */
+.fut{display:flex;flex-direction:column;gap:14px}
+.fi{border-radius:10px;padding:16px 18px;font-size:28px;line-height:1.48}
+.fi strong{display:block;font-size:25px;font-weight:700;margin-bottom:3px}
+.fn{background:#EBF5FB;color:#1A5276;border-left:6px solid #2E86C1}
+.fm{background:#D5F5E3;color:#1E8449;border-left:6px solid #27AE60}
+.fs{background:#FEF9E7;color:#7D6608;border-left:6px solid #D4AC0D}
+
+/* ── KT ribbon ── */
+.kt{background:linear-gradient(135deg,var(--teal),var(--navy));
+  padding:44px 96px;display:flex;align-items:center;gap:0}
+.ktlb{display:flex;align-items:center;padding-right:52px;
+  border-right:2px solid rgba(255,255,255,.2);margin-right:52px;flex-shrink:0}
+.ktl{font-size:34px;font-weight:700;letter-spacing:.10em;
+  text-transform:uppercase;color:var(--gold2);white-space:nowrap}
+.ktg{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;flex:1}
+.kti{display:flex;gap:14px;align-items:flex-start}
+.ktic{font-size:40px;flex-shrink:0;line-height:1}
+.ktt{font-size:30px;color:rgba(255,255,255,.92);line-height:1.52}
+.ktt strong{color:var(--gold2);display:block;font-size:30px;margin-bottom:3px}
+
+/* ── footer ── */
+.footer{background:var(--navy);padding:34px 96px 24px;
+  display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:52px;align-items:start}
+.ftl{font-size:22px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold2);margin-bottom:12px}
+.footer ul{padding-left:22px}
+.footer li{font-size:22px;color:#7AAAC2;line-height:1.6;margin-bottom:4px}
+.footer li::marker{color:var(--teal2)}
+.qrb{background:#fff;border-radius:12px;padding:18px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0}
+.qrp{width:120px;height:120px;background:#eee;border:2px dashed #aaa;
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:#999;text-align:center}
+.qrl{font-size:18px;color:var(--navy);font-weight:700;text-align:center}
+.fb2{grid-column:1/-1;border-top:1px solid #1E3A5F;padding-top:16px;
+  display:flex;justify-content:space-between;font-size:20px;color:#4A6A84}
+
+@media print{
+  @page{size:38in 33in;margin:0}
+  body{background:none;padding:0;display:block}
+  .wrap{transform:none !important;margin-bottom:0 !important}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+<div class="poster" id="poster">
+
+<!-- HEADER -->
+<header class="hdr">
+  <div>
+    <div class="tags">
+      <span class="tag tc">AAIC 2026</span>
+      <span class="tag tt">Innovation / Digital Health</span>
+      <span class="tag tt">Poster Session</span>
+    </div>
+    <h1>
+    Careresponse: A Collaborative Digital Ecosystem For Nonpharmacologic Support And Behavioral
+Analysis In Memory Care Centers</h1>
+    <div class="authors">
+      <strong>Nadia Elbaghdadi · Nada Dahroug · Marwa Mohamed · Ayah Abdalla · Safia Ahmed · Yasmine Elsayed · Alaa Khalifa · Leena Haidar · Raghad Mohammed · Ahmed Mohamed · Lojain Dafaallah · Youmna Ismail · Nadir Abdelrahman</strong>
+    </div>
+  </div>
+  <div class="badge"><span class="n">53</span><span class="l">POSTER</span>
+  <p><br>
+  <img src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/K3BIGT4oJzF4B5AsuYIU.jpg" width="160" height="160">
+  </p>
+  </div>
+
+</header>
+<div class="stripe"></div>
+
+<!-- KEY TAKEAWAYS -->
+<div class="kt">
+  <div class="ktlb"><div class="ktl">Key Takeaways</div></div>
+  <div class="ktg">
+    <div class="kti">
+      <div class="ktic"></div>
+      <div class="ktt"><strong>Safe by Design</strong>Nonpharmacologic BPSD support achievable with constrained AI — no PHI, no clinical directives, no installation required</div>
+    </div>
+    <div class="kti">
+      <div class="ktic"></div>
+      <div class="ktt"><strong>Clinically Grounded Outputs</strong>Prioritizes reassurance, environmental de-escalation, and communication — consistent with PALTC and CMS Emergency Preparedness principles</div>
+    </div>
+    <div class="kti">
+      <div class="ktic"></div>
+      <div class="ktt"><strong>Replicable Architecture</strong>Hybrid rules-based + constrained LLM design trades generative flexibility for structured safety — a model for AI in regulated care settings</div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- LEFT COLUMN -->
+  <div class="col cL">
+
+    <section>
+      <div class="sh"><div class="bar bt"></div><h2>Background</h2></div>
+      <p style="margin-bottom:14px">Behavioral and psychological symptoms of dementia (BPSD) are prevalent in long-term and post-acute care (PALTC) settings and may intensify during environmental disruptions or emergencies.</p>
+      <p>The CMS Emergency Preparedness Rule emphasizes staff training, communication strategies, and resident-centered responses — yet frontline caregivers often lack rapid-access tools that translate these principles into actionable, nonpharmacologic guidance.</p>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bg"></div><h2 style="color:var(--gold)">Clinical Problem</h2></div>
+      <div class="pills">
+        <div class="pill">Staff lack real-time de-escalation tools during emergencies</div>
+        <div class="pill">BPSD triggers amplify during environmental disruptions</div>
+        <div class="pill">Documentation inconsistency across interdisciplinary teams</div>
+        <div class="pill">Over-reliance on psychotropic medications as first response</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bt"></div><h2>Methods</h2></div>
+      <p style="margin-bottom:16px">We developed <strong>Crisis Card AI</strong>, a web-based prototype providing person-centered, nonpharmacologic responses to BPSD — aligned with CMS Emergency Preparedness and PALTC care principles.</p>
+      <div class="feat">
+        <div class="fc"><strong>Device-Agnostic</strong>No installation; works on any browser</div>
+        <div class="fc"><strong>60+ Scenarios</strong>Curated rules-based BPSD scenarios</div>
+        <div class="fc"><strong>Constrained LLM</strong>Fixed schema · Grade 4 reading level</div>
+        <div class="fc"><strong>Zero PHI</strong>No data collection or transmission</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bs"></div><h2>Ethics / Disclosure</h2></div>
+      <div class="el">
+        <div class="ei">Non-human subjects research per federal regulations</div>
+        <div class="ei">IRB review not required; no PHI collected or analyzed</div>
+        <div class="ei">AI outputs are educational — not clinical directives</div>
+        <div class="ei">Tested by two geriatricians; reviewed by Tele-Geriatric Research Fellowship</div>
+        <div class="ei">No competing financial interests declared</div>
+      </div>
+    </section>
+
+  </div><!-- /cL -->
+
+  <!-- MIDDLE COLUMN -->
+  <div class="col cM">
+
+    <section>
+      <div class="sh"><div class="bar bn"></div><h2>Figure 1 · System Architecture</h2></div>
+      <div class="fb">
+        <div class="fh">DUAL-PATH PROCESSING ARCHITECTURE</div>
+        <div class="fd">
+          <div class="arch">
+            <div style="font-size:22px;font-weight:700;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px">PATH 1 — PREDEFINED</div>
+            <div class="arow">
+              <div class="an ni"><span class="sm">Staff Input</span>Scenario selection<br>or free text</div>
+              <div class="ar">→</div>
+              <div class="an nr"><span class="sm">Rules-Based Library</span>60+ audited<br>BPSD scenarios</div>
+              <div class="ar">→</div>
+              <div class="an no"><span class="sm">Crisis Card Output</span>Redirect · Environ<br>Validation</div>
+            </div>
+            <div class="adv">── PATH 2 — NOVEL INPUT ──</div>
+            <div class="arow">
+              <div class="an ni"><span class="sm">Novel Input</span>Unlisted behavior<br>description</div>
+              <div class="ar">→</div>
+              <div class="an nl"><span class="sm">Constrained LLM</span>Fixed structure<br>Grade 4 language</div>
+              <div class="ar">→</div>
+              <div class="an no"><span class="sm">Crisis Card Output</span>Redirect · Environ<br>Validation</div>
+            </div>
+          </div>
+          <div class="sb">
+            <div class="sb-l">⚠ AI Safety Constraints</div>
+            <div class="sps">
+              <span class="sp">No diagnoses generated</span>
+              <span class="sp">No treatment recommendations</span>
+              <span class="sp">Simplified language enforced</span>
+              <span class="sp">Reviewed by 2 geriatricians</span>
+              <span class="sp">Educational use only</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bt"></div><h2>Figure 2 · Crisis Card Output Example</h2></div>
+      <div class="cc">
+        <div class="cch">EXAMPLE CRISIS CARD — Sundowning Behavior</div>
+        <div class="ccb">
+          <div class="cs">
+            <div class="cbg cr">1</div>
+            <div class="ct"><div class="ctl">REDIRECT</div>Give a simple, familiar task such as folding towels or sorting items.</div>
+          </div>
+          <div class="cs">
+            <div class="cbg ce">2</div>
+            <div class="ct"><div class="ctl">ENVIRONMENT</div>Close curtains, turn on warm lighting, reduce ambient noise.</div>
+          </div>
+          <div class="cs">
+            <div class="cbg cv">3</div>
+            <div class="ct"><div class="ctl">VALIDATION</div><em>"It's getting late, but you're safe here. I'm right here with you."</em></div>
+          </div>
+          <div class="cm">
+            <span class="chip">⚡ &lt;3 seconds</span>
+            <span class="chip">✓ CMS-aligned</span>
+            <span class="chip">🔒 No PHI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bg"></div><h2>Results</h2></div>
+      <div class="stats">
+        <div class="sc"><div class="sn">&lt;3s</div><div class="sd">Response Latency</div><div class="sd2">Predefined + AI scenarios</div></div>
+        <div class="sc"><div class="sn">60+</div><div class="sd">Audited Scenarios</div><div class="sd2">Rules-based library</div></div>
+        <div class="sc"><div class="sn">3</div><div class="sd">Output Domains</div><div class="sd2">Redirect · Environ · Validation</div></div>
+        <div class="sc"><div class="sn">2</div><div class="sd">Geriatricians</div><div class="sd2">Preliminary validation</div></div>
+      </div>
+      <ul style="margin-top:20px">
+        <li>Consistent structured output across predefined and novel BPSD scenarios</li>
+        <li>Grade 4 reading level accessible to frontline caregivers across training levels</li>
+        <li>Usable on any device without installation or network dependency</li>
+        <li>Low response latency confirmed across both rules-based and LLM pathways</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bg"></div><h2>Future Directions</h2></div>
+      <div class="fut">
+        <div class="fi fn"><strong>NEAR-TERM</strong>Formal usability testing with frontline PALTC caregivers and interdisciplinary teams to evaluate real-world acceptability and workflow integration</div>
+        <div class="fi fm"><strong>MID-TERM</strong>Longitudinal evaluation of psychotropic medication reliance as a system-level outcome measure following Crisis Card AI adoption</div>
+        <div class="fi fs"><strong>STRATEGIC</strong>Integration into facility-level CMS Emergency Preparedness programs as a scalable, low-barrier staff decision support resource</div>
+      </div>
+    </section>
+
+  </div><!-- /cM -->
+
+  <!-- RIGHT COLUMN -->
+  <div class="col cR">
+
+    <section>
+      <div class="sh"><div class="bar bn"></div><h2>Figure 3 · CMS Emergency Preparedness Alignment</h2></div>
+      <div class="cms">
+        <div class="cm2 ca"><div class="ci">🎓</div><div class="ct2">Staff Training</div><div class="cd">On-demand de-escalation protocols for frontline staff</div></div>
+        <div class="cm2 cb"><div class="ci">💬</div><div class="ct2">Communication</div><div class="cd">Standardized validation language for person-centered care</div></div>
+        <div class="cm2 cc2"><div class="ci">🏠</div><div class="ct2">Environment Controls</div><div class="cd">Sensory &amp; spatial modification guidance</div></div>
+        <div class="cm2 cd2"><div class="ci">👤</div><div class="ct2">Resident-Centered</div><div class="cd">Person-first reassurance strategies</div></div>
+      </div>
+      <p style="font-size:24px;color:var(--muted);margin-top:12px;font-style:italic;line-height:1.5">System outputs mapped to CMS Emergency Preparedness Rule domains: staff training, communication, and resident-centered response during routine and emergency care.</p>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bn"></div><h2>Table 1 · Predefined Behavioral Scenarios</h2></div>
+      <div class="fb">
+        <table class="btbl">
+          <thead><tr><th>Scenario</th><th>BPSD Description</th></tr></thead>
+          <tbody>
+            <tr><td>Sundowning</td><td>Evening agitation, confusion</td></tr>
+            <tr><td>Wandering</td><td>Elopement, exit-seeking</td></tr>
+            <tr><td>Paranoia</td><td>Accusatory delusions</td></tr>
+            <tr><td>Repetition</td><td>Repetitive questions/acts</td></tr>
+            <tr><td>Hygiene Refusal</td><td>Bathing/grooming resistance</td></tr>
+            <tr><td>Dressing</td><td>Clothing-related distress</td></tr>
+            <tr><td>Sleep Disturbance</td><td>Nighttime wakefulness</td></tr>
+            <tr><td>Mealtime Refusal</td><td>Eating reluctance</td></tr>
+            <tr><td>Verbal Outbursts</td><td>Agitation, yelling</td></tr>
+            <tr><td>Social Withdrawal</td><td>Disengagement, isolation</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:21px;color:var(--muted);padding:10px 14px;font-style:italic">Partial list; full library: 60+ scenarios</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh"><div class="bar bt"></div><h2>Conclusions</h2></div>
+      <div class="concl">
+        <div class="ci2"><div class="dot"></div><div class="ct3">This prototype demonstrates that CMS Emergency Preparedness–aligned, nonpharmacologic dementia care guidance can be delivered in real time at the point of care — without generating diagnoses or treatment recommendations.</div></div>
+        <div class="ci2"><div class="dot"></div><div class="ct3">A constrained rules-based + LLM architecture produces consistent, simplified crisis response outputs suitable for multidisciplinary PALTC staff across routine care and emergency disruption scenarios.</div></div>
+        <div class="ci2"><div class="dot"></div><div class="ct3">System performance, safety constraints, and alignment with PALTC nonpharmacologic care principles support advancement to formal frontline usability evaluation.</div></div>
+
+<div class="cms">
+        <div class="cm2 ca"><div class="ct2">Contact Information</div><div class="cd">
+         <p align="center">   <img src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/78Liye0DCg7YtW0EPUHj.png" width="160" height="160"></p>
+         </div></div>
+        <div class="cm2 cb"><div class="ct2">Interactive Prototype</div><div class="cd">
+         <p align="center">   <img src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/fpFgRiFaGxehKtbWv5Rj.jpg" width="160" height="160"></p>
+         </div></div>
+</div>
+      </div>
+    </section>
+
+  </div><!-- /cR. https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/SjbP3I02GydfP1XYZw8R.png -->
+<!--  https://aicrisiscards.com/assets/crisiscardai_qr_1768573239465-DBUrpc6s.png -->
+
+</div><!-- /body -->
+
+
+<!-- FOOTER -->
+<!-- /*
+<footer class="footer">
+  <div>
+    <div class="ftl">Learning Objectives</div>
+    <ul>
+      <li>Evaluate AI-integrated protocols for standardizing nonpharmacologic de-escalation and EHR documentation</li>
+      <li>Analyze behavioral analytics for reducing psychotropic medication reliance</li>
+      <li>Identify accessibility design considerations for diverse nursing workforces</li>
+    </ul>
+  </div>
+  <div>
+    <div class="ftl">Design Principles</div>
+    <ul>
+      <li>Device-agnostic · No installation required</li>
+      <li>Grade 4 reading level target</li>
+      <li>Fixed output structure for consistency</li>
+      <li>Photo policy: Green — sharing permitted</li>
+    </ul>
+  </div>
+  <div>
+    <div class="ftl">Contact</div>
+    <ul>
+      <li>CareResponse / Crisis Card AI</li>
+      <li>The Tele-Geriatric Research Fellowship</li>
+      <li>https://aicrisiscards.com/</li>
+      <li>Educational tool · Not diagnostic</li>
+    </ul>
+  </div>
+  <div class="qrb">
+    <div class="qrp"><img src="https://aicrisiscards.com/assets/crisiscardai_qr_1768573239465-DBUrpc6s.png" width="100" height="100"></div>
+    <div class="qrl">Scan to<br>View Demo</div>
+  </div>
+</footer>
+*/ -->
+
+</div></div>
+<script>
+(function(){
+  var wrap=document.getElementById('wrap');
+  var poster=document.getElementById('poster');
+  function sc(){
+    var vw=window.innerWidth-48;
+    var s=Math.min(vw/3648,1);
+    wrap.style.transform='scale('+s+')';
+    wrap.style.transformOrigin='top center';
+    var h=poster.offsetHeight;
+    wrap.style.marginBottom=(h*s-h)+'px';
+  }
+  window.addEventListener('load',sc);
+  window.addEventListener('resize',sc);
+})();
+</script>
+</body>
+</html>
