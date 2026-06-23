@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +13,6 @@
   --border:#D4DDE8; --muted:#5E6E82; --body:#1E2D3D;
   --PW:3648px;
 }
-
-  
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#8A9BAD;display:flex;justify-content:center;
   align-items:flex-start;padding:32px;font-family:'DM Sans',sans-serif;color:var(--body)}
@@ -46,30 +45,13 @@ h1{font-family:'Source Serif 4',serif;font-weight:700;font-size:80px;
 .stripe{height:9px;background:linear-gradient(90deg,var(--teal),var(--gold2) 55%,var(--teal2))}
 
 /* ── BODY 4-COL ── */
-<!-- .body{display:grid;grid-template-columns:repeat(4,1fr)} -->
-  .body{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    flex:1;
-}
-<!-- .col{padding:60px 44px;display:flex;flex-direction:column;gap:42px} -->
-  .col{
-    padding:60px 44px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
+.body{display:grid;grid-template-columns:repeat(4,1fr)}
+.col{padding:60px 44px;display:flex;flex-direction:column;gap:42px}
 .cL{background:var(--cream);border-right:2px solid var(--border)}
 .cM{background:var(--white);border-right:2px solid var(--border)}
 .cR{background:var(--cream);border-right:2px solid var(--border)}
 .cD{background:var(--white)}
 
-  .poster{
-    width:var(--PW);
-    height:33in;
-    display:flex;
-    flex-direction:column;
-}
 /* ── section head ── */
 .sh{display:flex;align-items:center;gap:14px;margin-bottom:20px}
 .bar{width:7px;border-radius:4px;flex-shrink:0}
@@ -197,41 +179,11 @@ li::marker{color:var(--teal)}
   border-radius:8px;display:flex;align-items:center;justify-content:center;
   font-size:18px;color:#999;text-align:center;padding:8px}
 .qrl{font-size:18px;color:var(--navy);font-weight:700;text-align:center}
-  
-<!-- @media print{  @page{size:38in 33in;margin:0}  body{background:none;padding:0;display:block}  .wrap{transform:none !important;margin-bottom:0 !important} }  -->
 
-  @media print {
-
-  @page {
-    size: 38in 28in;
-    margin: 0;
-  }
-
-  html,
-  body{
-    width:38in;
-    height:28in;
-    margin:0;
-    padding:0;
-    overflow:hidden;
-  }
-
-  .wrap{
-    transform:none !important;
-    margin:0 !important;
-    width:28in !important;
-  }
-
-  .poster{
-    width:38in !important;
-    height:28in !important;
-    overflow:hidden;
-  }
-}
-  .wrap {
-  transform: none !important;
-  margin: 0 !important;
-  width: 28in !important; /* <--- This is causing a layout squish */
+@media print{
+  @page{size:38in 33in;margin:0}
+  body{background:none;padding:0;display:block}
+  .wrap{transform:none !important;margin-bottom:0 !important}
 }
 </style>
 </head>
@@ -278,7 +230,7 @@ li::marker{color:var(--teal)}
     </div>
   </div><br>
 </div>
-<div><br></div>
+
 <!-- BODY -->
 <div class="body">
 
