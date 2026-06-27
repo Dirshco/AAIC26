@@ -199,7 +199,9 @@ li::marker{color:var(--teal)}
 .qrl{font-size:18px;color:var(--navy);font-weight:700;text-align:center}
 .fb2{grid-column:1/-1;border-top:1px solid #1E3A5F;padding-top:16px;
   display:flex;justify-content:space-between;font-size:20px;color:#4A6A84}
-
+  
+/* comment print the media */
+  
 @media print{
   @page{size:38in 33in;margin:0}
   body{background:none;padding:0;display:block}
@@ -223,7 +225,7 @@ li::marker{color:var(--teal)}
     Careresponse: A Collaborative Digital Ecosystem For Nonpharmacologic Support And Behavioral
 Analysis In Memory Care Centers</h1>
     <div class="authors">
-      <strong>Nadia Elbaghdadi · Nada Dahroug · Marwa Mohamed · Ayah Abdalla · Safia Ahmed · Yasmine Elsherif · Alaa Khalifa · Leena Haidar · Raghad Mohammed · Ahmed Mohamed · Lojain Dafaallah · Youmna Ismail · Nadir Abdelrahman
+      <strong>Nadia Elbaghdadi · Nada Dahroug · Marwa Mohamed · Ayah Abdalla · Safia Ahmed · Yasmine Elsherif · Alaa Khalifa · Leena Haidar · Raghad Mohammed · Ahmed Mohamed · Lojain Dafaallah · Youmna Ismail · Nadir Abdelrahman</strong>
     </div>
   </div>
   <div class="badge"><span class="n">53</span><span class="l">POSTER</span>
@@ -271,11 +273,15 @@ Analysis In Memory Care Centers</h1>
       <div class="pills">
         <div class="pill">Staff lack real-time de-escalation tools during emergencies</div>
         <div class="pill">BPSD triggers amplify during environmental disruptions</div>
-<!--        <div class="pill">Documentation inconsistency across interdisciplinary teams</div> -->
-<!--        <div class="pill">Over-reliance on psychotropic medications as first response</div> -->
       </div>
     </section>
 
+    <!--
+<section>   <div class="pill">Documentation inconsistency across interdisciplinary teams</div> 
+  <div class="pill">Over-reliance on psychotropic medications as first response</div> 
+</section>
+  -->
+    
     <section>
       <div class="sh"><div class="bar bt"></div><h2>Methods</h2></div>
       <p style="margin-bottom:16px">We developed <strong>Crisis Card AI</strong>, a web-based prototype providing person-centered, nonpharmacologic responses to BPSD — aligned with CMS Emergency Preparedness and PALTC care principles.</p>
@@ -326,7 +332,7 @@ Analysis In Memory Care Centers</h1>
               <div class="an no"><span >Crisis Card Output</span>Redirect · Environ<br>Validation</div>
             </div>
           </div>
-          <!-- /*
+<!-- /*  Remove Safety Constrains =============
           <div class="sb">
             <div class="sb-l">⚠ AI Safety Constraints</div>
             <div class="sps">
@@ -337,7 +343,7 @@ Analysis In Memory Care Centers</h1>
               <span class="sp">Educational use only</span>
             </div>
           </div>
-          */ -->
+============          */ -->
         </div>
       </div>
     </section>
@@ -427,20 +433,19 @@ Analysis In Memory Care Centers</h1>
         <div class="ci2"><div class="dot"></div><div class="ct3">This prototype demonstrates that CMS nonpharmacologic dementia care guidance can be delivered in real time at the point of care.</div></div>
         <div class="ci2"><div class="dot"></div><div class="ct3">A constrained prompt produces consistent, simplified crisis response outputs suitable for emergency disruption scenarios.</div></div>
         <div class="ci2"><div class="dot"></div><div class="ct3">The prototyp have safety constraints and aligned with PALTC nonpharmacologic care principles.</div></div>
+    </div>
     </section>
 
-<!-- /*    
+<!--  ==================== hide this section or move it down to the footer 
     <section>
       <div class="sh"><div class="bar bg"></div><h2>Future Directions</h2></div>
       <div class="concl">
         <div class="ci2"><div class="dot"></div><div class="ct3">Formal usability testing with frontline PALTC caregivers and interdisciplinary teams to evaluate real-world acceptability and workflow integration</div></div>
         <div class="ci2"><div class="dot"></div><div class="ct3">Longitudinal evaluation of psychotropic medication reliance as a system-level outcome measure following Crisis Card AI adoption</div></div>
-<!--        <div class="fi fs">Integration into facility-level CMS Emergency Preparedness programs as a scalable, low-barrier staff decision support resource</div>  -->
+        <div class="fi fs">Integration into facility-level CMS Emergency Preparedness programs as a scalable, low-barrier staff decision support resource</div>  
       </div>
     </section>
-
-  */
-  -->
+ -->
     <section>
 <div class="cms">
         <div class="cm2 ca"><div class="ct2">Contact Information</div><div class="cd">
@@ -461,7 +466,7 @@ Analysis In Memory Care Centers</h1>
 
 
 <!-- FOOTER -->
-
+<section>
 <footer class="footer">
   <div>
     <div class="ftl">Learning Objectives</div>
@@ -494,7 +499,7 @@ Analysis In Memory Care Centers</h1>
     <div class="qrl">Scan to<br>View Demo</div>
   </div>
 </footer>
-
+</section>
 
 </div></div>
 <script>
