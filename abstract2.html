@@ -54,7 +54,7 @@ h1{font-family:'Source Serif 4',serif;font-weight:700;font-size:86px;
 .bg{background:var(--gold);height:46px}
 .bn{background:var(--navy);height:46px}
 .bs{background:var(--slate);height:46px}
-h2{font-size:36px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+h2{font-size:40px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
 
 /* ── text ── */
 p,li{font-size:31px;line-height:1.65;color:var(--body)}
@@ -132,15 +132,15 @@ li::marker{color:var(--teal)}
 .sc{background:var(--navy);border-radius:12px;padding:26px 18px;text-align:center}
 .sn{font-family:'Source Serif 4',serif;font-size:40px;font-weight:700;
   color:var(--gold2);line-height:1;margin-bottom:6px}
-.sd{font-size:34px;color:#fff;line-height:1.3}
+.sd{font-size:40px;color:#fff;line-height:1.3}
 .sd2{font-size:32px;color:#fff;margin-top:3px}
 
 /* ── CMS 2x2 ── */
 .cms{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .cm2{border-radius:12px;padding:18px 16px;display:flex;flex-direction:column;gap:6px}
 .ci{font-size:38px}
-.ct2{font-size:26px;font-weight:700;line-height:1.2}
-.cd{font-size:24px;line-height:1.45}
+.ct2{font-size:34px;font-weight:700;line-height:1.2}
+.cd{font-size:34px;line-height:1.45}
 .ca{background:#D6EAF8;color:#1A5276}
 .cb{background:#D5F5E3;color:#1E8449}
 .cc2{background:#FEF9E7;color:#7D6608}
@@ -271,8 +271,8 @@ Analysis In Memory Care Centers</h1>
     <section>
       <div class="sh"><div class="bar bg"></div><h2 style="color:var(--gold)">Clinical Problem</h2></div>
       <div class="pills">
-        <div class="pill">Staff lack real-time de-escalation tools during emergencies</div>
-        <div class="pill">BPSD triggers amplify during environmental disruptions</div>
+        <div class="pill" style="margin-bottom:20px;">Staff lack real-time de-escalation tools during emergencies</div>
+        <div class="pill" style="margin-bottom:20px;">BPSD triggers amplify during environmental disruptions</div>
       </div>
     </section>
 
@@ -284,12 +284,12 @@ Analysis In Memory Care Centers</h1>
     
     <section>
       <div class="sh"><div class="bar bt"></div><h2>Methods</h2></div>
-      <p style="margin-bottom:16px">We developed <strong>Crisis Card AI</strong>, a web-based prototype providing person-centered, nonpharmacologic responses to BPSD — aligned with CMS Emergency Preparedness and PALTC care principles.</p>
+      <p style="margin-bottom:26px" >We developed <strong>Crisis Card AI</strong>, a web-based prototype providing person-centered, nonpharmacologic responses to BPSD — aligned with CMS Emergency Preparedness and PALTC care principles.</p>
       <div class="feat">
-        <div class="fc"><strong>Device-Agnostic: No installation; works on any browser</strong></div>
-        <div class="fc"><strong>60+ Scenarios: Curated rules-based BPSD scenarios</strong></div>
+      <!--  <div class="fc"><strong>Device-Agnostic: No installation; works on any browser</strong></div>  -->
+        <div class="fc"style="margin-top:20px;"><strong>60+ Scenarios: Curated rules-based BPSD scenarios</strong></div>
         <div class="fc"><strong>Constrained LLM: Fixed schema · Grade 4 reading level</strong></div>
-        <div class="fc"><strong>Zero PHI: No data collection or transmission</strong></div>
+<!--        <div class="fc"><strong>Zero PHI: No data collection or transmission</strong></div> -->
 <!--        <div class="fc"><strong>Testing: Reviewed by two geriatriciansn</strong></div>  -->
       </div>
     </section>
@@ -399,10 +399,7 @@ Analysis In Memory Care Centers</h1>
     </section>
 -->
     <section>
-<div>
-  The prototype consistently generated structured crisis cards using the predefined three-domain framework (Redirect, Environment, Validation). Response generation remained rapid across predefined and constrained-LLM pathways while maintaining a fixed output schema without collecting protected health information.
-</div>
-      
+<div class="cm2 ca"><div class="ct2" style="font-size:35px">The prototype consistently generated structured crisis cards using the predefined three-domain framework (Redirect, Environment, Validation). Response generation remained rapid across predefined and constrained-LLM pathways while maintaining a fixed output schema without collecting protected health information. No installation needed.</div></div>      
     </section>
   </div><!-- /cM -->
 
@@ -465,8 +462,7 @@ Analysis In Memory Care Centers</h1>
       </div>  
     </section>
 
-  </div><!-- /cR. https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/SjbP3I02GydfP1XYZw8R.png -->
-<!--  https://aicrisiscards.com/assets/crisiscardai_qr_1768573239465-DBUrpc6s.png -->
+  </div>
 
 </div><!-- /body -->
 
@@ -500,12 +496,12 @@ Analysis In Memory Care Centers</h1>
       <li>Educational tool · Not diagnostic</li>
     </ul>
   </div>
-  <div >
+  <div class="ftl">
     <p></p>
    <img
-  src="https://dirshco.github.io/AAIC26/crisiscardonphoneinNH3.jpg"
-  width="800"
-  height="450"
+  src="https://dirshco.github.io/AAIC26/crisiscardonphoneinNH5.png"
+  width="500"
+  height="250"
   style="border-radius:20px;"
 >
   </div>
